@@ -1,26 +1,26 @@
-//import 'dart:ffi';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hair_salon_app/components/my_textfield.dart';
 import 'package:hair_salon_app/components/my_button.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final Function()? onTap;  
-  LoginPage({super.key , required this.onTap});
+  RegisterPage({super.key , required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   
 
-  void signin() async {
+  void signup() async {
     showDialog(
       context: context,
       builder: (context) {
@@ -96,6 +96,14 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: 'password',
                   obscureText: true,
                 ),
+                const SizedBox(height: 10),
+                MyTextField(
+                  controller: confirmPasswordController,
+                  hintText: 'confitm password',
+                  obscureText: true,
+                ),
+
+                
                 const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.all(25.0),
@@ -109,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 20),
                 MyButton(
-                  onTap: signin,
+                  onTap: signup,
                 ),
                 const SizedBox(height: 50),
                 Padding(
@@ -124,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Text('Dont have an account?',
+                        child: Text('have an account?',
                             style: TextStyle(color: Colors.grey[600])),
                       ),
                       Expanded(
@@ -145,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                     GestureDetector(
                       onTap: widget.onTap,
                       child: Text(
-                        'Register Now',
+                        'login here',
                         style: TextStyle(
                             color: Colors.blue[10], fontWeight: FontWeight.bold),
                       ),
