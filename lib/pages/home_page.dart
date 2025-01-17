@@ -39,27 +39,7 @@ class HomePage extends StatelessWidget {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Container(
-                            decoration: BoxDecoration(),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                Text(
-                                  '9:41',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(0, 0, 0, 1),
-                                      fontFamily: 'SF Pro',
-                                      fontSize: 17,
-                                      letterSpacing: 0,
-                                      fontWeight: FontWeight.normal,
-                                      height: 1.2941176470588236),
-                                ),
-                              ],
-                            ),
-                          ),
+                          
                           SizedBox(width: 134),
                           Container(
                             decoration: BoxDecoration(),
@@ -71,76 +51,7 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 134),
-                          Container(
-                            decoration: BoxDecoration(),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 6, vertical: 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                SvgPicture.asset(
-                                    'assets/images/cellularconnection.svg',
-                                    semanticsLabel: 'cellularconnection'),
-                                SizedBox(width: 7),
-                                SvgPicture.asset('assets/images/wifi.svg',
-                                    semanticsLabel: 'wifi'),
-                                SizedBox(width: 7),
-                                SizedBox(
-                                    width: 27.32803726196289,
-                                    height: 13,
-                                    child: Stack(children: <Widget>[
-                                      Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          child: Container(
-                                              width: 25,
-                                              height: 13,
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.only(
-                                                  topLeft: Radius.circular(
-                                                      4.300000190734863),
-                                                  topRight: Radius.circular(
-                                                      4.300000190734863),
-                                                  bottomLeft: Radius.circular(
-                                                      4.300000190734863),
-                                                  bottomRight: Radius.circular(
-                                                      4.300000190734863),
-                                                ),
-                                                border: Border.all(
-                                                  color: Color.fromRGBO(
-                                                      0, 0, 0, 1),
-                                                  width: 1,
-                                                ),
-                                              ))),
-                                      Positioned(
-                                          top: 4.7811279296875,
-                                          left: 26,
-                                          child: SvgPicture.asset(
-                                              'assets/images/cap.svg',
-                                              semanticsLabel: 'cap')),
-                                      Positioned(
-                                          top: 2,
-                                          left: 2,
-                                          child: Container(
-                                              width: 21,
-                                              height: 9,
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.only(
-                                                  topLeft: Radius.circular(2.5),
-                                                  topRight:
-                                                      Radius.circular(2.5),
-                                                  bottomLeft:
-                                                      Radius.circular(2.5),
-                                                  bottomRight:
-                                                      Radius.circular(2.5),
-                                                ),
-                                                color:
-                                                    Color.fromRGBO(0, 0, 0, 1),
-                                              ))),
-                                    ])),
-                              ],
-                            ),
-                          ),
+                          
                         ],
                       ),
                     ),
@@ -157,6 +68,20 @@ class HomePage extends StatelessWidget {
                     color: Color.fromRGBO(255, 255, 255, 1),
                   ),
                   child: Stack(children: <Widget>[
+                    Positioned(
+                        top: 25,
+                        left: 10,
+                        child: Text(
+                          'Welcome to Miracle’s Salon',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Color.fromRGBO(0, 0, 0, 1),
+                              fontFamily: 'Amiri',
+                              fontSize: 30,
+                              letterSpacing: 0,
+                              fontWeight: FontWeight.normal,
+                              height: 1.8333333333333333),
+                        )),
                     Positioned(
                         top: 50,
                         left: 10,

@@ -31,11 +31,19 @@ class _RegisterPageState extends State<RegisterPage> {
     );
 
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+
+      if(passwordController.text == confirmPasswordController.text){
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
-      );
-      Navigator.pop(context);
+        );
+       Navigator.pop(context);
+      }else{
+       userErrorMsg('passwords do not match');
+        return;
+        
+      }
+
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       if (e.code == 'user-not-found') {
@@ -78,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Image.asset('lib/images/login.png'),
                 SizedBox(height: 50),
                 Text(
-                  'Login',
+                  'Register',
                   style: TextStyle(
                     color: Colors.grey[700],
                     fontSize: 20,
@@ -117,6 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const SizedBox(height: 20),
                 MyButton(
+                  text: 'Sign up',
                   onTap: signup,
                 ),
                 const SizedBox(height: 50),
