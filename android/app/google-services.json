@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "517068112470",
+    "project_id": "hair-salon-appointments",
+    "storage_bucket": "hair-salon-appointments.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517068112470:android:1430331a27fda64b2b71f7",
+        "android_client_info": {
+          "package_name": "com.example.hair_salon_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-PTmzBa5rAOVUIXSkibDzrzp-IgglOg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517068112470:android:08b95fb51831afd52b71f7",
+        "android_client_info": {
+          "package_name": "com.miericle.hSalons"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-PTmzBa5rAOVUIXSkibDzrzp-IgglOg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
