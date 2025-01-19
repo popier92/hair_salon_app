@@ -69,10 +69,10 @@ class HomePage extends StatelessWidget {
                   ),
                   child: Stack(children: <Widget>[
                     Positioned(
-                        top: 25,
+                        top: 10,
                         left: 10,
                         child: Text(
-                          'Welcome ' + (user?.email ?? 'Guest'),
+                          'Welcome ${user?.email ?? 'Guest'}',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Color.fromRGBO(0, 0, 0, 1),
