@@ -27,7 +27,7 @@ class _PagesBarState extends State<PagesBar> {
   ];
 
   Widget booking_page(){
-    if(user!.email == ''){
+    if(user!.email == 'test@email.com'){
       return BookingPage();}
       else{
         return CustBookingPage();
