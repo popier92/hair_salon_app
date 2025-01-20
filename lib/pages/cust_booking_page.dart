@@ -3,14 +3,14 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hair_salon_app/services/firestore.dart';
 
-class BookingPage extends StatefulWidget {
-  const BookingPage({Key? key}) : super(key: key);
+class CustBookingPage extends StatefulWidget {
+  const CustBookingPage({Key? key}) : super(key: key);
 
   @override
-  State<BookingPage> createState() => _BookingPageState();
+  State<CustBookingPage> createState() => _BookingPageState();
 }
 
-class _BookingPageState extends State<BookingPage> {
+class _BookingPageState extends State<CustBookingPage> {
   final FirestoreService _firestoreService = FirestoreService();
   final user = FirebaseAuth.instance.currentUser;
 
@@ -44,7 +44,7 @@ class _BookingPageState extends State<BookingPage> {
 
   Future<String> checkAvailability(String date, String time) async {
     bool isAvailable = await _firestoreService.checkAvailability(date, time);
-    return isAvailable ? 'Slots Available' : 'No Slots Available';
+    return isAvailable ? _firestoreService.hasBooked(date, time, user?.email ?? 'unknown') : 'No Slots Available';
   }
 
   DateTime dateOnly(DateTime date) {
@@ -99,7 +99,7 @@ class _BookingPageState extends State<BookingPage> {
                             }
                           });
                         }
-                        _firestoreService.createAppointmentSlot(
+                        _firestoreService.bookAppointment(
                             dateOnly(selectedDate).toString(),
                             timeToString(TimeOfDay(
                                 hour: 9 + (index / 2).floor(),
@@ -109,7 +109,7 @@ class _BookingPageState extends State<BookingPage> {
                           
                         });
                       },
-                      child: Text('Add slot'),
+                      child: Text('Book'),
                     ),
                   );
                 })),

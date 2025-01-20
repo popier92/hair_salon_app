@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hair_salon_app/components/my_textfield.dart';
 import 'package:hair_salon_app/components/my_button.dart';
+import 'package:hair_salon_app/services/firestore.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;  
@@ -13,6 +14,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final FirestoreService _firestoreService = FirestoreService();
+
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
@@ -37,6 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
         email: emailController.text,
         password: passwordController.text,
         );
+        _firestoreService.createUser('user', emailController.text,'customer');
        Navigator.pop(context);
       }else{
        userErrorMsg('passwords do not match');
@@ -52,7 +56,9 @@ class _RegisterPageState extends State<RegisterPage> {
         print('Wrong password provided for that user');
       }
       userErrorMsg(e.code);
+      return;
     }
+    
   }
 
   void userErrorMsg(String msg) {
