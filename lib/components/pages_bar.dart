@@ -19,12 +19,14 @@ class PagesBar extends StatefulWidget {
 class _PagesBarState extends State<PagesBar> {
   int _selectedIndex = 0;
   final user = FirebaseAuth.instance.currentUser;
-  static List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
-    BookingPage(),
-    AppointmentsPage(),
-    ProfilePage(),
-  ];
+  List<Widget> _widgetOptions() {
+    return <Widget>[
+      HomePage(),
+      booking_page(),
+      AppointmentsPage(),
+      ProfilePage(),
+    ];
+  }
 
   Widget booking_page(){
     if(user!.email == 'test@email.com'){
@@ -32,6 +34,10 @@ class _PagesBarState extends State<PagesBar> {
       else{
         return CustBookingPage();
       }
+  }
+
+  void signout() async {
+    await FirebaseAuth.instance.signOut();
   }
 
   void _onItemTapped(int index) {
@@ -45,10 +51,16 @@ class _PagesBarState extends State<PagesBar> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Miricle Appointment App'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: signout,
+          ),
+        ],
       ),
       body: IndexedStack(
         index: _selectedIndex,
-        children: _widgetOptions,
+        children: _widgetOptions(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -59,14 +71,6 @@ class _PagesBarState extends State<PagesBar> {
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
             label: 'Booking',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: 'Appointments',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,

@@ -36,8 +36,9 @@ class _BookingPageState extends State<BookingPage> {
     );
   }
 
-  void onDaySelected(DateTime date ) {
+  void onDaySelected(DateTime date , DateTime focusedDay) {
     setState(() {
+      todayDate = date;
       selectedDate = date;
     });
   }
@@ -47,7 +48,7 @@ class _BookingPageState extends State<BookingPage> {
     return isAvailable ? 'Slots Available' : 'No Slots Available';
   }
 
-  DateTime dateOnly(DateTime date) {
+  DateTime dateOnly(DateTime date, ) {
     return DateTime.utc(date.year, date.month, date.day);
   }
 
@@ -60,6 +61,7 @@ class _BookingPageState extends State<BookingPage> {
       firstDay: DateTime.utc(todayDate.year, todayDate.month, todayDate.day),
       lastDay: DateTime.utc(todayDate.year, todayDate.month + 1, todayDate.day),
       focusedDay: todayDate,
+      onDaySelected: onDaySelected,
     );
   }
 

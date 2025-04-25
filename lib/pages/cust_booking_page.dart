@@ -35,9 +35,9 @@ class _BookingPageState extends State<CustBookingPage> {
       ]),
     );
   }
-
-  void onDaySelected(DateTime date ) {
+void onDaySelected(DateTime date , DateTime focusedDay) {
     setState(() {
+      todayDate = date;
       selectedDate = date;
     });
   }
